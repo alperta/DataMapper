@@ -31,10 +31,12 @@ Please see src/DataMapper.php for the API.
 
 Here is how methods are mapped to fields :
 
+```text
 getProperty <=> property
 getMyProperty <=> my_property
 get10Properties <=> 10_properties
 get10properties <=> 10properties
+```
 
 Tests
 -----
