@@ -8,6 +8,8 @@ RedefineLab DataMapper is a simple library whose aim is to easily map objects
 to arrays and arrays to objects. Useful for fast database insertion from POPO
 and getting POPO from array fetched from database.
 
+RedefineLab DataMapper is provided with a service provider for Silex framework.
+
 Installation
 ------------
 
