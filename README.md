@@ -36,13 +36,13 @@ getProperty <=> property
 getMyProperty <=> my_property
 get10Properties <=> 10_properties
 get10properties <=> 10properties
-```
+``
 
 Tests
 -----
 
-Tests are run using Enhance PHP Test Framework.
-To run test :
+Tests are run using Enhance PHP Test Framework. No complex installation
+required ! To run tests :
 
 ```bash
 php tests/tests/php
