@@ -20,7 +20,8 @@ class DataMapper
             {
                 continue;
             }
-            $columnName = strtolower(preg_replace('@[A-Z0-9]@', '_$0', lcfirst($matches['property'])));
+            $tempColumnName = preg_replace('@([a-zA-Z])([0-9])@', '$1_$2', lcfirst($matches['property']));
+            $columnName = strtolower(preg_replace('@([a-z0-9])([A-Z])@', '$1_$2', $tempColumnName));
 
             $value = $object->$method();
             if ($value || !$removeEmptyKeys)
