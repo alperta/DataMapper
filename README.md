@@ -18,8 +18,9 @@ Update your composer.json file like so :
 
 ```json
 {
+    "minimum-stability": "dev",
     "require": {
-        "redefinelab/datamapper": "1.0-dev"
+        "redefinelab/datamapper" : "dev-master"
     }
 }
 ```
@@ -38,7 +39,7 @@ getProperty <=> property
 getMyProperty <=> my_property
 get10Properties <=> 10_properties
 get10properties <=> 10properties
-``
+```
 
 Tests
 -----
