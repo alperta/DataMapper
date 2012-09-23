@@ -65,5 +65,5 @@ Tests are run using Enhance PHP Test Framework. No complex installation
 required ! To run tests :
 
 ```bash
-php tests/tests/php
+php tests/tests.php
 ```
