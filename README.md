@@ -32,14 +32,31 @@ Usage
 
 Please see src/DataMapper.php for the API.
 
-Here is how methods are mapped to fields :
+When converting an object to an array, RedefineLab DataMapper will fetch
+all of the object public methods beginning with 'get'. It is adviced to use
+camel case method names. In that case, any upper case character or number
+encountered will be mapped to an underscore followed by the lower case
+character (or number), to comply with SQL naming conventions.
+The same mechanism applies in the reverse direction where underscore
+separated column names are mapped to camel case setter names.
+
+Here is an example of how methods are mapped to column names :
 
 ```text
-getProperty <=> property
-getMyProperty <=> my_property
-get10Properties <=> 10_properties
-get10properties <=> 10properties
+// getters to column names
+getProperty => property
+getMyProperty => my_property
+get10Properties => 10_properties
+get10properties => 10properties
+
+// column names to setters
+property => setProperty
+my_property => getMyProperty
+10_properties => set10Properties
+10properties => set10properties
 ```
+
+
 
 Tests
 -----
