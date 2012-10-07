@@ -72,7 +72,6 @@ class DataMapperTest extends \Enhance\TestFixture
      * @var DataMapper
      */
     protected $object;
-    protected $randClassName;
 
     public function setUp()
     {
