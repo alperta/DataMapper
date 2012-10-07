@@ -4,7 +4,7 @@ namespace RedefineLab\DataMapper;
 
 use Enhance\Assert;
 
-require_once __DIR__ . '/../src/RedefineLab/DataMapper/DataMapper.php';
+require_once __DIR__ . '/../../../src/RedefineLab/DataMapper/DataMapper.php';
 
 class MyTestClass {
      private $id;
@@ -181,5 +181,3 @@ class DataMapperTest extends \Enhance\TestFixture
     }
 
 }
-
-\Enhance\Core::runTests();
