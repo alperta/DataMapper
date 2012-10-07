@@ -1,5 +1,6 @@
 {
     "name": "redefinelab/datamapper",
+    "description": "Easily map objects to arrays and arrays to objects. Useful for fast database insertion from POPOs.",
     "require": {
         "php": ">=5.3.3"
     },
