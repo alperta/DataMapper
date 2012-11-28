@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Datamapper by redefinelab</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/redefinelab/DataMapper">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/redefinelab/DataMapper/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/redefinelab/DataMapper/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Datamapper</h1>
+          <p>Easily map objects to arrays and arrays to objects. Useful for fast database insertion from POPOs.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/redefinelab">redefinelab</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h2>What ?</h2>
+
+<p>RedefineLab DataMapper is a simple library whose aim is to easily map objects
+to arrays and arrays to objects. Useful for fast database insertion from POPO
+and getting POPO from array fetched from database.</p>
+
+<p>RedefineLab DataMapper is provided with a service provider for Silex framework.</p>
+
+<h2>Installation</h2>
+
+<p>RedefineLab DataMapper use PHP Composer.
+Update your composer.json file like so :</p>
+
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"minimum-stability"</span><span class="p">:</span> <span class="s2">"dev"</span><span class="p">,</span>
+    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"redefinelab/datamapper"</span> <span class="p">:</span> <span class="s2">"dev-master"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>More info : <a href="http://getcomposer.org">http://getcomposer.org</a></p>
+
+<h2>Usage</h2>
+
+<p>Please see src/DataMapper.php for the API.</p>
+
+<p>When converting an object to an array, RedefineLab DataMapper will fetch
+all of the object public methods beginning with 'get'. It is adviced to use
+camel case method names. In that case, any upper case character or number
+encountered will be mapped to an underscore followed by the lower case
+character (or number), to comply with SQL naming conventions.
+The same mechanism applies in the reverse direction where underscore
+separated column names are mapped to camel case setter names.</p>
+
+<p>Here is an example of how methods are mapped to column names :</p>
+
+<div class="highlight"><pre>// getters to column names
+getProperty =&gt; property
+getMyProperty =&gt; my_property
+get10Properties =&gt; 10_properties
+get10properties =&gt; 10properties
+
+// column names to setters
+property =&gt; setProperty
+my_property =&gt; getMyProperty
+10_properties =&gt; set10Properties
+10properties =&gt; set10properties
+</pre></div>
+
+<h2>Tests</h2>
+
+<p>Tests are run using Enhance PHP Test Framework. No complex installation
+required ! To run tests :</p>
+
+<div class="highlight"><pre>php tests/tests.php
+</pre></div>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
