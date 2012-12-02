@@ -51,7 +51,7 @@ get10properties => 10properties
 
 // column names to setters
 property => setProperty
-my_property => getMyProperty
+my_property => setMyProperty
 10_properties => set10Properties
 10properties => set10properties
 ```
