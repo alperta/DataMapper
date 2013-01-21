@@ -1,10 +1,6 @@
 <?php
 
-namespace RedefineLab\DataMapper;
-
-use Enhance\Assert;
-
-require_once __DIR__ . '/../../../src/RedefineLab/DataMapper/DataMapper.php';
+require_once __DIR__ . '/../src/RedefineLab/DataMapper/DataMapper.php';
 
 class MyTestClass {
      private $id;
@@ -65,17 +61,13 @@ class MyTestClass {
 
 }
 
-class DataMapperTest extends \Enhance\TestFixture
+class DataMapperTest extends PHPUnit_Framework_TestCase
 {
-
-    /**
-     * @var DataMapper
-     */
     protected $object;
 
     public function setUp()
     {
-        $this->object = new DataMapper;
+        $this->object = new RedefineLab\DataMapper\DataMapper;
     }
 
     public function testArrayToObject()
@@ -86,7 +78,7 @@ class DataMapperTest extends \Enhance\TestFixture
         $randTest2numbers = md5(uniqid('', true));
         $randTest300Numbers = md5(uniqid('', true));
 
-        $className = '\RedefineLab\DataMapper\MyTestClass';
+        $className = 'MyTestClass';
         $classArray = array(
             'id' => $randId,
             'camel_case' => $randCamelCase,
@@ -103,11 +95,11 @@ class DataMapperTest extends \Enhance\TestFixture
         $expectedObject->setTest2numbers($randTest2numbers);
         $expectedObject->setTest300Numbers($randTest300Numbers);
 
-        Assert::areIdentical($expectedObject->getId(), $actualObject->getId());
-        Assert::areIdentical($expectedObject->getCamelCase(), $actualObject->getCamelCase());
-        Assert::areIdentical($expectedObject->getTest1Number(), $actualObject->getTest1Number());
-        Assert::areIdentical($expectedObject->getTest1Number(), $actualObject->getTest1Number());
-        Assert::areIdentical($expectedObject->getTest300Numbers(), $actualObject->getTest300Numbers());
+        $this->assertEquals($expectedObject, $actualObject);
+        $this->assertEquals($expectedObject->getCamelCase(), $actualObject->getCamelCase());
+        $this->assertEquals($expectedObject->getTest1Number(), $actualObject->getTest1Number());
+        $this->assertEquals($expectedObject->getTest1Number(), $actualObject->getTest1Number());
+        $this->assertEquals($expectedObject->getTest300Numbers(), $actualObject->getTest300Numbers());
     }
 
     public function testObjectToArray()
@@ -135,7 +127,7 @@ class DataMapperTest extends \Enhance\TestFixture
 
         $actualArray = $this->object->objectToArray($object);
 
-        Assert::areIdentical($expectedArray, $actualArray);
+        $this->assertEquals($expectedArray, $actualArray);
 
     }
 
@@ -169,13 +161,13 @@ class DataMapperTest extends \Enhance\TestFixture
         $expectedObject->setTest2numbers($randTest2numbers);
         $expectedObject->setTest300Numbers($randTest300Numbers);
 
-        Assert::areIdentical($expectedObject->getId(), $actualObject->getId());
-        Assert::areIdentical($expectedObject->getCamelCase(), $actualObject->getCamelCase());
-        Assert::areIdentical($expectedObject->getTest1Number(), $actualObject->getTest1Number());
-        Assert::areIdentical($expectedObject->getTest1Number(), $actualObject->getTest1Number());
-        Assert::areIdentical($expectedObject->getTest300Numbers(), $actualObject->getTest300Numbers());
-        Assert::isFalse(method_exists($expectedObject, 'get46544'));
-        Assert::isFalse(method_exists($expectedObject, 'getFakeProperty'));
+        $this->assertEquals($expectedObject->getId(), $actualObject->getId());
+        $this->assertEquals($expectedObject->getCamelCase(), $actualObject->getCamelCase());
+        $this->assertEquals($expectedObject->getTest1Number(), $actualObject->getTest1Number());
+        $this->assertEquals($expectedObject->getTest1Number(), $actualObject->getTest1Number());
+        $this->assertEquals($expectedObject->getTest300Numbers(), $actualObject->getTest300Numbers());
+        $this->assertFalse(method_exists($expectedObject, 'get46544'));
+        $this->assertFalse(method_exists($expectedObject, 'getFakeProperty'));
 
     }
 

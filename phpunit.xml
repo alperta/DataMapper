@@ -1,0 +1,5 @@
+<testsuites>
+	<testsuite name="First">
+		<file>tests/DataMapperTest.php</file>
+	</testsuite>
+</testsuites>
